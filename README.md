@@ -1,7 +1,7 @@
-CoppelCanada
+ACEAngular
 ============
 
-Repositorio de nueva estructura Coppel Canada
+Repositorio de ACE Template plus Angular Structure
 
 Requerimientos para instalar:
 
