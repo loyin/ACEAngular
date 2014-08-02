@@ -1,17 +1,16 @@
 angular.module('app', [
-  'ngRoute',
-  'ngResource',
+  'ngRoute','ngResource',
   'ngGrid',
   'home',
   'services.breadcrumbs',
   'services.i18nNotifications',
   'services.httpRequestTracker',
   'security',
-  'directives.crud','recuperarPreventa',
+  'directives.crud',
   'templates.app','LocalStorageModule',
-  'templates.common',
-  'ui.bootstrap','ui.utils','treeControl','treeview','buscar','parciales','confirmar','venta','formasdepago',
-  'modals'
+  'templates.common','ngSanitize',
+  'ui.bootstrap','ui.utils','treeControl','treeview',
+  'dashboard'
   ]);
 
 angular.module('app').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -56,38 +55,6 @@ $scope.notifications = i18nNotifications;
   });
 
 
-// var postData = {
-//         numeroTienda:800,
-//         numeroCaja:2,
-// 		usuarioSistema:91680727
-//     };
-
-//   $http({
-//     method:'POST',
-//     //url:'http://localhost/webservices/models/login.php',
-// 	//url:'http://10.44.41.185/coppelcanadaajs/apps/canada/models/logmein.php',
-// 	url:'http://10.44.63.167:8080/wsCoppelCanada/services/acceso/iniciarsesion',
-//     //headers:{'Content-Type': 'application/x-www-form-urlencoded'},
-// 	headers:{'Content-Type': 'application/json; charset=utf-8'},
-//     data:postData
-//     }).success(function(data,status){
-      
-//       // Start fresh
-//           localStorageService.clearAll();
-//           localStorageService.set('token',data.token);
-// 	  //localStorageService.set('cliente',JSON.stringify(response.data));
-	    
-// 	  	localStorageService.set('userData',JSON.stringify(postData));
-
-//           console.log(localStorageService.get('token'));
-
-//     }).error(function(data,status){
-      
-
-//   });
-
-
-
 }]);
 
 angular.module('app').controller('HeaderCtrl',['$scope','$location', '$route', 'security', 'breadcrumbs', 'notifications', 'httpRequestTracker',
@@ -108,10 +75,6 @@ angular.module('app').controller('HeaderCtrl',['$scope','$location', '$route', '
     }
 
   };
-
-$scope.clickme=function(){
-  //console.log("hola");
-};
 
   $scope.isNavbarActive = function (navBarPath) {
     return navBarPath === breadcrumbs.getFirst().name;
@@ -203,8 +166,9 @@ angular.module('app').controller('MenuItemCtrl',['$scope','$http', function($sco
     //ESTRUCTURA DE EJEMPLO PARA GENERAR EL MENU
     $scope.tree = [
       {
-        name: "TreeView", 
-        uri:"treeview" , 
+        name: "Dashboard", 
+        uri:"dashboard" , 
+        icon:'icon-dashboard',
         nodes: [],
         show:false,
         active:false
@@ -303,68 +267,3 @@ angular.module('app').controller('MenuItemCtrl',['$scope','$http', function($sco
    //
     
 }]);
-
-
-
-
-// angular.module('app').controller('TreeController',['$scope', function($scope) {
-//     $scope.delete = function(data) {
-//         data.nodes = [];
-//     };
-//     $scope.add = function(data) {
-//         var post = data.nodes.length + 1;
-//         var newName = data.name + '-' + post;
-//         data.nodes.push({name: newName,nodes: []});
-//     };
-//     $scope.hasNodes = function(data) {
-//         return (data.nodes.length > 0)
-//     };
-//     $scope.tree = [{name: "Node", nodes: []}];
-// }]);
-
-
-// var ModalDemoCtrl = function ($scope, $modal, $log) {
-
-//   $scope.items = ['item1', 'item2', 'item3'];
-
-//   $scope.open = function (size) {
-
-
-//     var modalInstance = $modal.open({
-//       templateUrl: 'myModalContent.html',
-//       controller: ModalInstanceCtrl,
-//       size: size,
-//       resolve: {
-//         items: function () {
-//           return $scope.items;
-//         }
-//       }
-//     });
-
-//     modalInstance.result.then(function (selectedItem) {
-//       $scope.selected = selectedItem;
-//     }, function () {
-//       $log.info('Modal dismissed at: ' + new Date());
-//     });
-//   };
-// };
-
-// // Please note that $modalInstance represents a modal window (instance) dependency.
-// // It is not the same as the $modal service used above.
-
-// var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-
-//   $scope.items = items;
-//   $scope.selected = {
-//     item: $scope.items[0]
-//   };
-
-//   $scope.ok = function () {
-//     $modalInstance.close($scope.selected.item);
-//   };
-
-//   $scope.cancel = function () {
-//     $modalInstance.dismiss('cancel');
-//   };
-// };
-

@@ -29,6 +29,13 @@
 
 
 		<script type="text/javascript" src="static/jquery.js"></script>
+		<script src="static/assets/js/jquery.sparkline.min.js"></script>
+		<script src="static/assets/js/jquery.easy-pie-chart.min.js"></script>
+		<script src="static/assets/js/flot/jquery.flot.min.js"></script>
+		<script src="static/assets/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="static/assets/js/flot/jquery.flot.resize.min.js"></script>
+
+
 		<script type="text/javascript" src="static/angular.js"></script>
 		<script type="text/javascript" src="static/ui-utils.js"></script>
 		<script type="text/javascript" src="static/ui-bootstrap.js"></script>
@@ -37,6 +44,8 @@
 		<script type="text/javascript" src="static/angular-tree-control.js"></script>
 
 		<script type="text/javascript" src="static/<%= grunt.config.get('pkg.name') %>.js"></script>
+
+
 
 		
 
@@ -105,70 +114,7 @@
 					<div ng-include="'menu.tpl.html'" ></div>
 				</div>
 				<div class="main-content">
-					
-					<div class="page-content">
-						<!--<div class="page-header">
-							<h1>
-								Dashboard
-								<small>
-									<i class="icon-double-angle-right"></i>
-									overview &amp; stats
-								</small>
-							</h1>
-						</div>-->
-
-						<!-- /.page-header -->
-
-						<div ng-view>
-						</div>
-						<!--<div class="row" >
-							<script type="text/ng-template"  id="my-tmpl">
-							    {{data.name}}
-							    <button class="btn" ng-click="add(data)">Add node</button>
-							    <button class="btn" ng-click="delete(data)" 
-							            ng-show="hasNodes(data)">Delete nodes</button>
-							    <ul>
-							        <li ng-repeat="data in data.nodes" ng-include="'my-tmpl'"></li>
-							    </ul>
-							</script>
-
-							<ul ng-controller="TreeController">
-							    {{tree}}
-							    <li ng-repeat="data in tree" ng-include="'my-tmpl'"></li>
-							</ul>
-
-						</div>
-						-->
-
-
-						<!--<div class="row">
-							<div ng-controller="ModalDemoCtrl">
-							    <script type="text/ng-template" id="myModalContent.html">
-							        <div class="modal-header">
-							            <h3 class="modal-title">I'm a modal!</h3>
-							        </div>
-							        <div class="modal-body">
-							            <ul>
-							                <li ng-repeat="item in items">
-							                    <a ng-click="selected.item = item">{{ item }}</a>
-							                </li>
-							            </ul>
-							            Selected: <b>{{ selected.item }}</b>
-							        </div>
-							        <div class="modal-footer">
-							            <button class="btn btn-primary" ng-click="ok()">OK</button>
-							            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-							        </div>
-							    </script>
-
-							    <button class="btn btn-default" ng-click="open()">Open me!</button>
-							    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
-							    <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
-							    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
-							</div>
-						</div>-->
-						
-					</div><!-- /.page-content -->
+					<div ng-view></div>
 				</div><!-- /.main-content -->
 				
 			</div><!-- /.main-container-inner -->

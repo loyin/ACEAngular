@@ -148,7 +148,7 @@ module.exports = function (grunt) {
         }
       },
       angular: {
-        src:['vendor/angular/angular-1.2.18.js', 'vendor/angular/angular.route.js', 'vendor/angular/angular.resource.js'],
+        src:['vendor/angular/angular-1.2.18.js', 'vendor/angular/angular.route.js', 'vendor/angular/angular.resource.js','vendor/angular/angular-sanitize.js'],
         dest: '<%= distdir %>/angular.js'
       },
       // mongo: {
