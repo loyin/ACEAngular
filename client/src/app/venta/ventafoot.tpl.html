@@ -1,0 +1,65 @@
+<div>
+<div id="content_client_foot" class="navbar navbar-default navbar-fixed-bottom" role="navigation" ng-controller="FootCtrl" tabindex="0"  ui-keypress="{'esc':'keypressCallback($event,$index)'}" ui-keydown="{'f1 f3 f10 f11':'catchKeyEvent($event)'}">
+			<!-- INFOBOX DEL CLIENTE - DINERO ELECTRONICO , VENCIDO ETC-->										
+			<div class="row">
+				<div class="col-xs-9 col-md-9 col-sm-6">
+				<div class="infobox-container pull-left" >												
+					<div class="infobox infobox-orange   btn no-border btn-danger" id="btn_sugerencia">
+						<div class="infobox-icon">
+							<i class="moon-bulb"></i>
+						</div>
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number">&nbsp;</span>
+							<div class="infobox-content" style="color:#fff">Sugerencia</div>
+						</div>													
+					</div>
+					<div class="infobox infobox-green  btn no-border btn-success">
+						<div class="infobox-icon">
+							<i class="moon-banknote"></i>
+						</div>
+
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number">$0</span>
+							<div class="infobox-content" style="color:#fff">Pago Inicial</div>
+						</div>
+					</div>
+					<div class="infobox infobox-blue2  btn no-border btn-info">
+						<div class="infobox-icon">
+							<i class="moon-tv"></i>
+						</div>
+
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number" id="sp_totalmuebles">$0</span>
+							<div class="infobox-content" style="color:#fff">Total Muebles</div>
+						</div>
+
+						
+					</div>
+					<div class="infobox infobox-purple  btn no-border btn-purple">
+						<div class="infobox-icon">
+							<i class="moon-t-shirt"></i>
+						</div>
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number">$0</span>
+							<div class="infobox-content" style="color:#fff">Total Ropa</div>
+						</div>													
+					</div>
+	
+				</div>
+				</div>
+				<div class="col-xs-3 col-md-3 col-sm-6 ">
+				<div class="infobox-container pull-right" >												
+					<div class="infobox infobox-green">
+						<div class="infobox-icon" style="cursor:pointer;" >
+							<i class="icon-dollar" id="btn_supago" data-toggle="lightbox" data-footer="Ingrese la huella" data-remote="images/fingerprint.png"></i>
+						</div>
+						<div class="infobox-data">
+							<input class="pull-right input-medium input-lg" type="text" id="txt_supago" placeholder="SU PAGO">									
+						</div>
+					</div>
+				</div><!-- /.infobox -->
+				
+				
+			<div>
+		</div>
+</div>

@@ -1,0 +1,20 @@
+  <li class="light-blue dropdown" ng-show="isAuthenticated()" >
+    <a class="dropdown-toggle" href>
+      <img alt="Jason's Photo" src="static/assets/avatars/user.jpg" class="nav-user-photo">
+      <span class="user-info">
+        <small>Bienvenido,</small>
+        {{curentUser.nombreUsuario}}
+      </span>
+
+      <i class="icon-caret-down"></i>
+    </a>
+
+    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close" role="menu">
+      <li>
+        <a href ng-click="logout()">
+          <i class="icon-off"></i>
+          Logout
+        </a>
+      </li>
+    </ul>
+  </li>

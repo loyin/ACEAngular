@@ -1,0 +1,158 @@
+
+<div class="col-xs-12">
+	
+	<div class="row">
+		
+		<tabset>
+			<tab active="tab.active">
+				<tab-heading>
+					<div class="fuenteGrande" ><i class="green icon-shopping-cart bigger-110"></i> Venta </div>
+				</tab-heading>
+				
+				<div class="row">
+					
+					<div class="col-xs-6">
+					<!-- DATOS DEL CLIENTE -->										
+						<p class="lead lighter blue margin-lead" id="h3_cliente" >
+							
+							<span ng-hide="{{clienteData.numero!=90001}}" class="input-icon">
+								<input type="text" class="input-large input-pos-int" placeholder="Nombre Cliente">				
+								<i class="moon-vendor2"></i>
+							</span>
+							<span ng-show="{{clienteData.numero!=90001}}" class="badge badagefont {{cliente.badge}}"  id="sp_puntulidad"><strong>{{clienteData.puntualidad}}</strong></span>
+							<span ng-show="{{clienteData.numero!=90001}}" style="font-size:24px !important; color: #2679B5 !important;" id="sp_cliente">{{cliente.nombre}}</span>					
+							
+							<ul class="list-unstyled" style="color: #8089A0;" ng-show="clienteData.numero!=90001">
+								<li>
+									<i class="icon-credit-card bigger-110 blue"></i>																
+									{{clienteData.numero}}
+								</li>
+
+								<li>
+									<i class="icon-map-marker bigger-110 blue"></i>
+									{{cliente.domicilio.calle+ " #"+ cliente.domicilio.numero+" Col."+ cliente.domicilio.colonia}}
+								</li>
+
+								<li>
+									<i class="icon-phone bigger-110 blue"></i>
+									{{cliente.telefono}}
+								</li>
+								<li>
+									<i class="icon-envelope-alt bigger-110 blue"></i>
+									correo@gmail.com
+								</li>
+
+								
+							</ul>
+						</p>													
+					</div>
+
+					<div class="col-xs-12 col-md-6 col-sm-6">
+						<!-- vendedor -->
+						<div class="row margin-bottom-20" id="contenedor_vendedor" style="">																																										
+							<div class="form-group">												
+								<div class="col-sm-12">
+									<span class="input-icon" ng-show="vendedor.input">
+										<input type="text" ui-keypress="{'enter':'showVendedor()'}" ng-model="vendedor.numeroVendedor" class="input-large input-pos-int" placeholder="Vendedor">				
+										<i class="moon-vendor2"></i>
+									</span>															
+									<span class="lighter" ng-hide="vendedor.input" style="font-size:18px !important; color: #2679B5 !important;"><i class="moon-vendor2 bigger-120"></i>&nbsp;{{vendedorData.nombreEmpleado.toProperCase()}}</span>																										
+									
+								</div>
+							</div>																																			
+						</div>
+						<div class="space-4"></div>
+						<!-- SKU -->
+						<div class="row " id="contenedor_sku" style="">											
+							<div class="form-group">												
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<span class="input-icon">
+										<input type="text" ng-model="articulo.sku" ui-keypress="{'enter':'showSku()'}" class="input-large" placeholder="SKU" >	
+										<i class="icon-barcode"></i>
+									</span>
+									<span class="input-icon" ng-show="soymuebles">														
+										<input ng-model="articulo.cantidad" type="text" class="input-small" placeholder="Cant">
+										<i class="icon-shopping-cart"></i>
+									</span>
+									<span class="input-icon" ng-show="soymuebles" >
+										<input ng-model="articuloData.claveModoVenta" type="text" ng-disabled ="articuloData.claveModoVenta=='T'" class="input-small" placeholder="Entrega">
+										<i class="icon-truck"></i>
+									</span>																											
+									<div ng-show="articuloData.nombreArticulo.length>0">
+										<b>{{articuloData.nombreArticulo}}</b>
+									</div>
+									<div ng-show="articulo.descripcionEstadoNoVende.length>0">
+										<b>{{articulo.descripcionEstadoNoVende}}</b>
+									</div>
+									<!--<span class="input-icon">														
+										<input type="text" id="txt_entrega" class="input-small" placeholder="Entrega">
+										<i class="icon-truck"></i>
+									</span>-->
+								</div>
+							</div>
+						</div>
+						
+						<button class="btn btn-default" ng-click="showAModal()">Open me!</button>{{selected}}
+					</div>
+					
+				</div>
+				<div class="row">
+					<!-- EL GRID -->
+					<div  class="gridStyle" ng-grid="gridOptions"></div>
+				</div>
+
+			</tab>
+			
+		</tabset>
+		
+	</div>
+	<!-- footer -->
+	<div class="row">
+	
+		
+			<div class="infobox-container pull-left" >												
+					<div class="infobox infobox-orange   btn no-border btn-danger">
+						<div class="infobox-icon">
+							<i class="moon-bulb"></i>
+						</div>
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number">&nbsp;</span>
+							<div class="infobox-content" style="color:#fff">Sugerencia</div>
+						</div>													
+					</div>
+					<div class="infobox infobox-green  btn no-border btn-success">
+						<div class="infobox-icon">
+							<i class="moon-banknote"></i>
+						</div>
+
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number">$0</span>
+							<div class="infobox-content" style="color:#fff">Pago Inicial</div>
+						</div>
+					</div>
+					<div class="infobox infobox-blue2  btn no-border btn-info">
+						<div class="infobox-icon">
+							<i class="moon-tv"></i>
+						</div>
+
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number">$0</span>
+							<div class="infobox-content" style="color:#fff">Total Muebles</div>
+						</div>
+					</div>
+					<div class="infobox infobox-purple  btn no-border btn-purple">
+						<div class="infobox-icon">
+							<i class="moon-t-shirt"></i>
+						</div>
+						<div class="infobox-data footdata">
+							<span class="infobox-data-number">$0</span>
+							<div class="infobox-content" style="color:#fff">Total Ropa</div>
+						</div>													
+					</div>
+				</div>		
+</div>
+
+
+</div>
+
+

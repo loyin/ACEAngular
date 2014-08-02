@@ -1,0 +1,32 @@
+	<script type="text/javascript">
+		try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+	</script>
+
+		<script type="text/ng-template"  id="my-tmpl">
+		    <a ng-click="expand(data)" href="{{ {true:'/'+data.uri, false:'#'}[data.uri.length>0]}}" ng-class="{true:'dropdown-toggle' , false:''} [data.nodes.length >0]" ui:keyboard-navigatable 
+    navigate-on="{up: selectPreviousItem, down: selectNextItem, submit: close, escape: close}">
+		    	
+		    	<i ng-class="{false:'icon-dashboard', true:'icon-double-angle-right' } [!data.padre]" ></i>
+		    	<span ng-class="{true:'menu-text', false:'' } [data.padre]"> {{data.name}} </span>
+		    	<b class="arrow icon-angle-down" ng-show="data.nodes.length >0"></b>
+		    </a>
+		   
+		    <ul class="submenu" ng-if="data.nodes"  ng-style="{display: data.show == true ? 'block' : 'none' }" >
+		        <li   ng-class="{'active':data.active}" ng-repeat="data in data.nodes" ng-include="'my-tmpl'"></li>
+		    	
+		    </ul>
+		</script>
+		<!--Creacion del menu-->
+		<ul class="nav nav-list" ng-controller="MenuItemCtrl" >
+			
+		    <li ng-class="{'open':data.show, 'active': data.active }" ng-repeat="data in tree" ng-include="'my-tmpl'"></li>
+		</ul>
+
+	<div class="sidebar-collapse" id="sidebar-collapse" ng-click="toggleMenu()" >
+		<!-- {true: 'menu-min', false: ''}[!collapseMenu]-->
+		<i ng-class="{true:'icon-double-angle-right',false: 'icon-double-angle-left'} [!collapseMenu]" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+	</div>
+
+	<script type="text/javascript">
+		try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+	</script>

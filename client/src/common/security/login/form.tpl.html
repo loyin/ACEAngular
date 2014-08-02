@@ -1,0 +1,135 @@
+<style>
+
+        .login-layout {
+         background: white;
+        
+        }
+
+        .login-layout .widget-box {
+            background-color: #fff;
+            padding: 0px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 19px rgba(255, 255, 255, 0.3);
+        }
+        .login-layout .widget-box .widget-main {
+            
+            border-radius: 10px;
+            background-color: #fff;
+            
+        }       
+        .form-horizontal .form-group {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .form-group {
+            margin-bottom: 5px;
+        }
+
+        #login-box
+        {
+
+            border-radius: 10px;
+        }
+
+        .vertical-height
+        {
+             height: 100vh;
+             /*border:1px solid red;*/
+        }
+        .vertical-center
+        {
+            position: relative;
+            top:25%;
+        }
+        .center-text
+        {
+            text-align: center;
+            font-size: 2em !important;
+        }
+
+
+    </style>
+<div class="row">
+  <div class="col-md-4 col-md-offset-3">
+        <div class="login-layout" >
+        <div class="main-container"  >
+            <div class="main-content"   >
+                <div class="login-container position-relative vertical-height "  >
+                    <div id="login-box" class="login-box visible widget-box no-border vertical-center"  >
+                        <div class="widget-body"  >
+                            <div class="widget-main text-center" >
+                                <center><h4 class="header blue lighter bigger">
+                                    <!-- <i class="moon-vendor2 bigger-130"></i> -->
+                                    Favor de Identificarse
+                                </h4></center>
+                                <div class="space-6"></div>
+                                <form class="form-horizontal" id="validation-form" method="get">
+                                    <div class="form-group">
+                                        <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                        <i class="icon-user" style="margin:8px;"></i>
+                                            <input type="text" minlength="8" maxlength="9" id="txt_emp" name="txt_emp" class="form-control input-lg center-text"  placeholder="Num. Empleado" ng-model="user.numeroEmpleado"/>
+                                        </span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="space"></div>
+                                    <div class="form-group clearfix" align="center">
+                                        
+                                        <button id="btn_action" ng-click="login()" value="Iniciar Sesion" type="button" class="width-35  btn btn-sm no-border btn-white" style="border-radius:5px;">
+                                            <i class="moon-finger bigger-150 "></i>
+                                            Ingresar
+                                        </button>
+                                    </div>
+
+                                    <div class="space-4"></div>
+                                    <div class="alert" id="msg_alerta" style="display:none;">
+                                        <button data-dismiss="alert" class="close" type="button">
+                                            <i class="icon-remove"></i>
+                                        </button>
+                                        <strong id="msg_mensaje">                                                           
+                                            
+                                        </strong>
+                                            Favor de Revisar e Intentar de Nuevo.
+                                        <br>
+                                    </div>
+                                </form>
+                                
+                            </div>                                          
+                            <div id="hna"></div>
+                        </div><!--/widget-body-->
+                    </div><!--/login-box-->
+                </div>  <!-- position-relative -->
+            </div>
+        </div><!--/.main-container-->
+    </div>
+  </div>
+</div>
+
+
+<!--<form name="form" novalidate class="login-form">
+    <div class="modal-header">
+        <h4>Sign in</h4>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-warning" ng-show="authReason">
+            {{authReason}}
+        </div>
+        <div class="alert alert-error" ng-show="authError">
+            {{authError}}
+        </div>
+        <div class="alert alert-info">Please enter your login details</div>
+        <label>E-mail</label>
+        <input name="login" type="email" ng-model="user.email" required autofocus>
+        <label>Password</label>
+        <input name="pass" type="password" ng-model="user.password" required>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary login" ng-click="login()" ng-disabled='form.$invalid'>Sign in</button>
+        <button class="btn clear" ng-click="clearForm()">Clear</button>
+        <button class="btn btn-warning cancel" ng-click="cancelLogin()">Cancel</button>
+    </div>
+</form>-->
+
+

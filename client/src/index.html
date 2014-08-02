@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+	<head>
+		<meta charset="utf-8" />
+		<title>Dashboard - Ace Admin</title>
+
+		<meta name="description" content="overview &amp; stats" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--<link rel="stylesheet" href="static/bootstrap.debug.css" />-->
+
+		<link href="static/assets/css/bootstrap.min.css" rel="stylesheet" />
+		
+		<link rel="stylesheet" href="static/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="static/assets/css/ace-fonts.css" />
+
+		<link rel="stylesheet" href="static/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="static/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="static/assets/css/ace-skins.min.css" />
+
+		<link rel="stylesheet" href="static/assets/moon.css" />
+		<link rel="stylesheet" href="static/assets/ng-grid.css"/>
+
+		<link rel="stylesheet" href="static/assets/js/typeahead/typeahead.js-bootstrap.css"/>
+
+		<link rel="stylesheet" href="static/assets/css/tree-control-attribute.css" />		
+		<link rel="stylesheet" href="static/assets/css/tree-control.css" />
+
+
+
+		<script type="text/javascript" src="static/jquery.js"></script>
+		<script type="text/javascript" src="static/angular.js"></script>
+		<script type="text/javascript" src="static/ui-utils.js"></script>
+		<script type="text/javascript" src="static/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="static/angular-local-storage.js"></script>
+
+		<script type="text/javascript" src="static/angular-tree-control.js"></script>
+
+		<script type="text/javascript" src="static/<%= grunt.config.get('pkg.name') %>.js"></script>
+
+		
+
+		<!--<script type="text/javascript" src="/static/angular-strap-full.js"></script>-->
+		
+	</head>
+	<style>
+	.badagefont{
+		font-size:20px;
+	}
+	.gridStyle {
+    width:100%;
+    min-height: 350px;
+    max-height: 350px;
+}
+
+.user-info{max-width:200px !important;}
+		.nav-tabs > li .close {
+			margin: -2px 0 0 10px;
+			font-size: 18px;
+		}
+		.page-header {
+			/*border-bottom:none;*/
+		}
+		
+		
+		.container_cliente{
+			margin-top:10px;
+			border-radius: 10px 10px 10px 10px;
+			background-color:#fff;
+			padding: 20px;
+			-webkit-box-shadow: 0px 0px 19px rgba(0, 0, 80, 0.3);
+			-moz-box-shadow:    0px 0px 19px rgba(0, 0, 80, 0.3);
+			box-shadow:         0px 0px 19px rgba(0, 0, 80, 0.3);
+			min-height:200px;
+		}
+		.tt-suggestion {			
+			padding: 0px;		
+		}
+		.fuenteGrande{
+			font-size: 1.5em;
+		}
+
+		.btn-user-photo {
+		  margin: -4px 8px 0 0;
+		  border-radius: 100%;
+		  border: 2px solid #FFF;
+		  max-width: 40px;
+		}
+
+	</style>
+
+	<body ng-controller="AppCtrl" class="">
+
+		<div ng-include="'header.tpl.html'"></div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+				<div class="sidebar" ng-class="{true: 'menu-min', false: ''}[!collapseMenu]" id="sidebar" ng-controller="MenuCtrl"  ng-show="isAuthenticated()">
+					<div ng-include="'menu.tpl.html'" ></div>
+				</div>
+				<div class="main-content">
+					
+					<div class="page-content">
+						<!--<div class="page-header">
+							<h1>
+								Dashboard
+								<small>
+									<i class="icon-double-angle-right"></i>
+									overview &amp; stats
+								</small>
+							</h1>
+						</div>-->
+
+						<!-- /.page-header -->
+
+						<div ng-view>
+						</div>
+						<!--<div class="row" >
+							<script type="text/ng-template"  id="my-tmpl">
+							    {{data.name}}
+							    <button class="btn" ng-click="add(data)">Add node</button>
+							    <button class="btn" ng-click="delete(data)" 
+							            ng-show="hasNodes(data)">Delete nodes</button>
+							    <ul>
+							        <li ng-repeat="data in data.nodes" ng-include="'my-tmpl'"></li>
+							    </ul>
+							</script>
+
+							<ul ng-controller="TreeController">
+							    {{tree}}
+							    <li ng-repeat="data in tree" ng-include="'my-tmpl'"></li>
+							</ul>
+
+						</div>
+						-->
+
+
+						<!--<div class="row">
+							<div ng-controller="ModalDemoCtrl">
+							    <script type="text/ng-template" id="myModalContent.html">
+							        <div class="modal-header">
+							            <h3 class="modal-title">I'm a modal!</h3>
+							        </div>
+							        <div class="modal-body">
+							            <ul>
+							                <li ng-repeat="item in items">
+							                    <a ng-click="selected.item = item">{{ item }}</a>
+							                </li>
+							            </ul>
+							            Selected: <b>{{ selected.item }}</b>
+							        </div>
+							        <div class="modal-footer">
+							            <button class="btn btn-primary" ng-click="ok()">OK</button>
+							            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+							        </div>
+							    </script>
+
+							    <button class="btn btn-default" ng-click="open()">Open me!</button>
+							    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+							    <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
+							    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+							</div>
+						</div>-->
+						
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+				
+			</div><!-- /.main-container-inner -->
+
+		</div><!-- /.main-container -->
+	    
+	</body>
+</html>
