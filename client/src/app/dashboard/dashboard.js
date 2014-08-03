@@ -60,7 +60,7 @@ directive('easyFlot',function(){
     },
     link:function(scope,elem){
       scope.$watch('flotdata',function (newval){
-        var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'150px'});
+        var placeholder = elem.css({'width':'90%' , 'min-height':'150px'});
         $.plot(placeholder, scope.flotdata, {
           series: {
             pie: {
