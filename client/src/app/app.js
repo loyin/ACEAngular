@@ -10,7 +10,7 @@ angular.module('app', [
   'templates.app','LocalStorageModule',
   'templates.common','ngSanitize',
   'ui.bootstrap','ui.utils','treeControl','treeview',
-  'dashboard'
+  'dashboard','tablessd'
   ]);
 
 angular.module('app').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -174,9 +174,25 @@ angular.module('app').controller('MenuItemCtrl',['$scope','$http', function($sco
         active:false
       },
       {
-        name: "Modals", 
-        uri:"modals" , 
-        nodes: [],
+        name:"Tables",
+        uri:"",
+        icon:'icon-list',
+        nodes:[
+          {
+            name:"Simple & Dynamic",
+            uri:"tables/simple_dinamic",
+            nodes:[],
+            show:false,
+            active:false
+          },
+          {
+            name:"jqGrid Plugin",
+            uri:"tables/jqgrid",
+            nodes:[],
+            show:false,
+            active:false
+          }
+        ],
         show:false,
         active:false
       },
